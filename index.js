@@ -7,7 +7,7 @@ function collect(collection) {
     return {
         get: () => modified,
         count: () => modified.length,
-        initial: () => collection,
+        initial: collection,
         contains: (what) => (modified.indexOf(what) !== -1),
         toJSON: () => (JSON.stringify(modified)),
         isArray: () => Array.isArray(modified),
@@ -103,7 +103,5 @@ function collect(collection) {
         }
     }
 }
-
-//collect([1, 2, 3, 4, 5])
 
 export default collect;
