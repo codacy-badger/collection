@@ -1,5 +1,5 @@
 {
-  "name": "collection",
+  "name": "clct",
   "version": "1.0.0",
   "description": "⛓ Chainable Laravel-styled collections for JS with Lodash",
   "main": "index.js",

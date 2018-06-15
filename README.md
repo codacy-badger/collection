@@ -6,7 +6,7 @@ Laravel, popular PHP framework, provides embedded `Collection` feature — easy 
 
 ## Installation
 
-    npm i collection -s
+    npm i clct -s
 
 ## Collection 101
 
@@ -103,3 +103,8 @@ Starts and ends profiling. Call once to call `console.time`. Then, call second t
 
     collect([1, 2, 3]).profile().diff([0, 5]).concat([7, 3]).profile()
     > ​​​​​​​​​​Profiling: 0.062ms​​​​​
+
+## TODO
+- [ ] Add tests
+- [ ] Implement more methods
+- [ ] Move from `lodash` (?)
