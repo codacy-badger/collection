@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from "lodash";
 
 function collect(collection) {
     let modified = collection;
@@ -11,67 +11,67 @@ function collect(collection) {
         contains: (what) => (modified.indexOf(what) !== -1),
         toJSON: () => (JSON.stringify(modified)),
         isArray: () => Array.isArray(modified),
-        profile: function () {
+        profile() {
             if(profiling) {
                 profiling = false;
-                console.timeEnd('Profiling');
+                console.timeEnd("Profiling");
             } else {
                 profiling = true;
-                console.time('Profiling');
+                console.time("Profiling");
             }
 
             return this;
         },
-        log: function () {
+        log() {
             console.log(modified);
             return this;
         },
-        first: function () {
+        first() {
             modified = modified[Object.keys(modified)[0]];
             return this;
         },
-        flatten: function () {
+        flatten() {
             modified = _.flatten(modified);
             return this;
         },
-        sort: function (how) {
+        sort(how) {
             modified = modified.sort(how);
             return this;
         },
-        sortAscBy: function (key) {
+        sortAscBy(key) {
             modified = modified.sort((a, b) => (a[key] > b[key]));
             return this;
         },
-        sortDescBy: function (key) {
+        sortDescBy(key) {
             modified = modified.sort((a, b) => (a[key] < b[key]));
             return this;
         },
-        filter: function (how) {
+        filter(how) {
             modified = modified.filter(how);
             return this;
         },
-        concat: function (what) {
+        concat(what) {
             modified = modified.concat(what);
             return this;
         },
-        find: function (what) {
+        find(what) {
             modified = _.find(modified, what);
             return this;
         },
-        findKey: function (what) {
+        findKey(what) {
             modified = _.findKey(modified, what);
             return this;
         },
-        diff: function (what) {
+        diff(what) {
             modified = _.difference(modified, what);
             return this;
         },
-        map: function (how) {
+        map(how) {
             modified = modified.map(how);
             return this;
         },
         reduce: how => modified.reduce(how),
-        except: function (what = []) {
+        except(what = []) {
             let wasObject = false;
             if(!this.isArray()) {
                 modified = [modified];
@@ -83,25 +83,25 @@ function collect(collection) {
                     delete item[key];
                 }
                 return item;
-            })
+            });
 
-            if(wasObject) modified = modified[0]
+            if(wasObject) modified = modified[0];
 
             return this;
         },
-        some: function (what) {
+        some(what) {
             if (!this.isArray()) {
-                throw new Error('Current collection is not an array');
-                return this;
+                throw new Error("Current collection is not an array");
+            } else {
+                modified = modified.some(what);
             }
-            modified = modified.some(what);
             return this;
         },
-        chunk: function(count) {
+        chunk(count) {
             modified = _.chunk(modified, count);
             return this;
         }
-    }
+    };
 }
 
 export default collect;
