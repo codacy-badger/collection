@@ -70,7 +70,7 @@ function collect(collection) {
             modified = modified.map(how);
             return this;
         },
-        reduce: how => modified.reduce(how),
+        reduce: (how) => modified.reduce(how),
         except(what = []) {
             let wasObject = false;
             if(!this.isArray()) {
